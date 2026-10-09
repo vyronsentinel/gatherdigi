@@ -1,9 +1,14 @@
 const pricingDialog = document.querySelector("#pricing-dialog");
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyA-04Nmsw4dD_HgfoMm_3bypuwi9Vx-CuzX56YsSndCQyKQkfvuL8o1AjvT5aDSVia/exec";
+const policyDialog = document.querySelector("#policy-dialog");
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxhaX02P8zejkyEGclqKjvFY2GZu0cxPxoh5m_gVqBDqY09DCfLfHYAGIgMa6GztFyE/exec";
 
 if (pricingDialog) {
   document.querySelectorAll("[data-open-pricing]").forEach((button) => {
-    button.addEventListener("click", () => pricingDialog.showModal());
+    button.addEventListener("click", () => {
+      if (inquiryDialog?.open) inquiryDialog.close();
+      if (policyDialog?.open) policyDialog.close();
+      if (!pricingDialog.open) pricingDialog.showModal();
+    });
   });
 
   document.querySelector("[data-close-pricing]")?.addEventListener("click", () => {
@@ -16,6 +21,28 @@ if (pricingDialog) {
 
   pricingDialog.addEventListener("click", (event) => {
     if (event.target === pricingDialog) pricingDialog.close();
+  });
+}
+
+if (policyDialog) {
+  document.querySelectorAll("[data-open-policy]").forEach((button) => {
+    button.addEventListener("click", () => {
+      if (pricingDialog?.open) pricingDialog.close();
+      if (inquiryDialog?.open) inquiryDialog.close();
+      if (!policyDialog.open) policyDialog.showModal();
+    });
+  });
+
+  document.querySelector("[data-close-policy]")?.addEventListener("click", () => {
+    policyDialog.close();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && policyDialog.open) policyDialog.close();
+  });
+
+  policyDialog.addEventListener("click", (event) => {
+    if (event.target === policyDialog) policyDialog.close();
   });
 }
 
@@ -33,6 +60,7 @@ if (inquiryDialog && inquiryForm && inquiryFrame && inquiryStatus) {
   document.querySelectorAll("[data-open-inquiry]").forEach((button) => {
     button.addEventListener("click", () => {
       if (pricingDialog?.open) pricingDialog.close();
+      if (policyDialog?.open) policyDialog.close();
       if (!inquiryDialog.open) inquiryDialog.showModal();
     });
   });
