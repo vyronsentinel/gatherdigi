@@ -146,6 +146,15 @@ h1 em, h2 em { color: var(--green); font-weight: 500; }
 .pricing-dialog-close { position: static; z-index: 2; display: inline-flex; align-items: center; gap: 12px; align-self: flex-end; margin: 0 0 12px auto; padding: 7px 0 7px 12px; border: 0; background: transparent; color: var(--green); font: 600 11px var(--sans); cursor: pointer; }
 .pricing-dialog-close .icon-close { width: 1.4em; height: 1.4em; }
 @keyframes pricing-enter { from { opacity: 0; transform: translate(-50%, calc(-50% + 14px)) scale(0.985); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+.policy-dialog { position: fixed; top: 50%; left: 50%; width: min(720px, calc(100% - 32px)); max-width: none; max-height: min(88vh, 760px); max-height: min(88dvh, 760px); margin: 0; padding: clamp(22px, 5vw, 44px); overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; border: 1px solid rgb(49 92 75 / 25%); color: var(--ink); background-color: var(--paper); background-image: linear-gradient(rgb(247 248 245 / 96%), rgb(247 248 245 / 96%)), url("../images/background.jpg"); background-position: center; background-size: cover; box-shadow: 0 24px 80px rgb(22 38 30 / 24%); transform: translate(-50%, -50%); }
+.policy-dialog[open] { display: flex; flex-direction: column; animation: pricing-enter 240ms ease-out both; }
+.policy-dialog::backdrop { background: rgb(18 34 27 / 62%); backdrop-filter: blur(3px); }
+.policy-dialog > .eyebrow { margin-bottom: 10px; }
+.policy-dialog h2 { margin: 0 0 7px; font-family: var(--serif); font-size: 36px; font-weight: 500; line-height: 1.2; }
+.policy-updated { margin: 0 0 22px; color: var(--muted); font-size: 11px; }
+.policy-section { padding: 17px 0; border-top: 1px solid rgb(49 92 75 / 18%); }
+.policy-section h3 { margin: 0 0 7px; font-family: var(--serif); font-size: 19px; font-weight: 500; }
+.policy-section p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.75; }
 .inquiry-dialog { position: fixed; top: 50%; left: 50%; width: min(760px, calc(100% - 32px)); max-width: none; max-height: min(88vh, 760px); max-height: min(88dvh, 760px); margin: 0; padding: clamp(24px, 5vw, 48px); overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; scrollbar-color: var(--green) rgb(247 248 245 / 58%); scrollbar-width: thin; border: 1px solid rgb(49 92 75 / 25%); color: var(--ink); background-color: var(--paper); background-image: linear-gradient(rgb(247 248 245 / 94%), rgb(247 248 245 / 94%)), url("../images/background.jpg"); background-position: center; background-size: cover; box-shadow: 0 24px 80px rgb(22 38 30 / 24%); transform: translate(-50%, -50%); }
 .inquiry-dialog[open] { display: flex; flex-direction: column; animation: inquiry-enter 180ms ease-out both; }
 @keyframes inquiry-enter { from { opacity: 0; } to { opacity: 1; } }
@@ -207,6 +216,8 @@ html.has-reveal [data-reveal].is-visible { opacity: 1; transform: none; }
 
 .site-footer { width: min(1240px, calc(100% - 96px)); min-height: 96px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .site-footer p, .site-footer small, .site-footer > a:last-of-type { margin: 0; color: var(--muted); font-size: 10px; }
+.footer-policy { padding: 0; border: 0; background: transparent; color: var(--muted); font: 400 10px var(--sans); text-decoration: none; cursor: pointer; transition: color 180ms ease; }
+.footer-policy:hover { color: var(--green); }
 .site-footer .icon-arrow { width: 1em; height: 1em; color: var(--coral); }
 
 @media (max-width: 760px) {
@@ -256,6 +267,7 @@ html.has-reveal [data-reveal].is-visible { opacity: 1; transform: none; }
   .site-footer { min-height: 100px; display: grid; grid-template-columns: 1fr auto; row-gap: 3px; padding: 20px 0; }
   .site-footer p { grid-column: 1; grid-row: 2; }
   .site-footer > a:last-of-type { grid-column: 2; grid-row: 1; }
+  .footer-policy { grid-column: 1; grid-row: 3; justify-self: start; }
   .site-footer small { grid-column: 2; grid-row: 2; text-align: right; }
 }
 
