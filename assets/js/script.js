@@ -1,5 +1,5 @@
 const pricingDialog = document.querySelector("#pricing-dialog");
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxhaX02P8zejkyEGclqKjvFY2GZu0cxPxoh5m_gVqBDqY09DCfLfHYAGIgMa6GztFyE/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyA-04Nmsw4dD_HgfoMm_3bypuwi9Vx-CuzX56YsSndCQyKQkfvuL8o1AjvT5aDSVia/exec";
 
 if (pricingDialog) {
   document.querySelectorAll("[data-open-pricing]").forEach((button) => {
