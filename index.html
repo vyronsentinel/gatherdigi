@@ -69,7 +69,7 @@
             <div class="project-meta">
               <div>
                 <p class="project-kicker">CHRISTENING · 2026</p>
-                <h3>Project #1</h3>
+                <h3>Pabloir Saint Achilles</h3>
                 <p>A playful, superhero-inspired celebration site.</p>
               </div>
             </div>
@@ -87,7 +87,7 @@
             <div class="project-meta">
               <div>
                 <p class="project-kicker">CHRISTENING · 2026</p>
-                <h3>Project #2</h3>
+                <h3>Shanaiah Reine</h3>
                 <p>A storybook invitation with a little magic.</p>
               </div>
             </div>
@@ -200,7 +200,11 @@
             <option value="WhatsApp">WhatsApp</option>
           </select>
         </label>
-        <label>Contact detail<input name="contactDetail" id="contact-detail" placeholder="Phone number or profile name" maxlength="120" /></label>
+        <label>
+          <span id="contact-detail-label">Email for preferred contact</span>
+          <input name="contactDetail" id="contact-detail" type="email" autocomplete="email" placeholder="name@example.com" maxlength="254" required aria-describedby="contact-detail-help" />
+          <small class="contact-detail-help" id="contact-detail-help">Enter the email address you want me to use. It can be the same as your confirmation email.</small>
+        </label>
         <label class="inquiry-field-wide">Venue or city<input name="venue" maxlength="200" /></label>
         <label class="inquiry-field-wide">Theme or style<input name="theme" placeholder="For example: garden, classic, playful" maxlength="200" /></label>
         <label class="inquiry-field-wide">What else should I know?<textarea name="details" rows="4" maxlength="2000"></textarea></label>
