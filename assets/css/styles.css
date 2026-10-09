@@ -146,8 +146,10 @@ h1 em, h2 em { color: var(--green); font-weight: 500; }
 .pricing-dialog-close { position: static; z-index: 2; display: inline-flex; align-items: center; gap: 12px; align-self: flex-end; margin: 0 0 12px auto; padding: 7px 0 7px 12px; border: 0; background: transparent; color: var(--green); font: 600 11px var(--sans); cursor: pointer; }
 .pricing-dialog-close .icon-close { width: 1.4em; height: 1.4em; }
 @keyframes pricing-enter { from { opacity: 0; transform: translate(-50%, calc(-50% + 14px)) scale(0.985); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
-.inquiry-dialog { position: fixed; top: 50%; left: 50%; width: min(760px, calc(100% - 32px)); max-width: none; max-height: min(88vh, 760px); margin: 0; padding: clamp(24px, 5vw, 48px); overflow-y: auto; scrollbar-color: var(--green) rgb(247 248 245 / 58%); scrollbar-width: thin; border: 1px solid rgb(49 92 75 / 25%); color: var(--ink); background-color: var(--paper); background-image: linear-gradient(rgb(247 248 245 / 94%), rgb(247 248 245 / 94%)), url("../images/background.jpg"); background-position: center; background-size: cover; box-shadow: 0 24px 80px rgb(22 38 30 / 24%); transform: translate(-50%, -50%); }
-.inquiry-dialog[open] { display: flex; flex-direction: column; animation: pricing-enter 240ms ease-out both; }
+.inquiry-dialog { position: fixed; top: 50%; left: 50%; width: min(760px, calc(100% - 32px)); max-width: none; max-height: min(88vh, 760px); max-height: min(88dvh, 760px); margin: 0; padding: clamp(24px, 5vw, 48px); overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; scrollbar-color: var(--green) rgb(247 248 245 / 58%); scrollbar-width: thin; border: 1px solid rgb(49 92 75 / 25%); color: var(--ink); background-color: var(--paper); background-image: linear-gradient(rgb(247 248 245 / 94%), rgb(247 248 245 / 94%)), url("../images/background.jpg"); background-position: center; background-size: cover; box-shadow: 0 24px 80px rgb(22 38 30 / 24%); transform: translate(-50%, -50%); }
+.inquiry-dialog[open] { display: flex; flex-direction: column; animation: inquiry-enter 180ms ease-out both; }
+.inquiry-dialog .pricing-dialog-close { position: sticky; top: 0; flex: 0 0 auto; }
+@keyframes inquiry-enter { from { opacity: 0; } to { opacity: 1; } }
 .inquiry-dialog::backdrop { background: rgb(18 34 27 / 62%); backdrop-filter: blur(3px); }
 .inquiry-dialog > .eyebrow { margin-bottom: 10px; }
 .inquiry-dialog h2 { margin: 0 0 10px; font-family: var(--serif); font-size: 34px; font-weight: 500; line-height: 1.2; }
@@ -223,10 +225,11 @@ html.has-reveal [data-reveal].is-visible { opacity: 1; transform: none; }
   .intro-note h2 { max-width: 320px; font-size: 27px; }
   .work-section { padding: 68px 20px 60px; }
   .pricing-dialog { top: 50%; left: 50%; width: calc(100% - 24px); max-height: 82vh; padding: 22px 20px; transform: translate(-50%, -50%); }
-  .inquiry-dialog { top: 50%; left: 50%; width: calc(100% - 24px); max-height: 82vh; padding: 22px 20px; transform: translate(-50%, -50%); }
+  .inquiry-dialog { top: 50%; left: 50%; width: calc(100% - 24px); max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); padding: 16px clamp(14px, 4vw, 20px); transform: translate(-50%, -50%); }
   .inquiry-dialog h2 { font-size: 28px; }
   .inquiry-form { grid-template-columns: 1fr; gap: 13px; }
   .inquiry-field-wide { grid-column: auto; }
+  .inquiry-form input, .inquiry-form select, .inquiry-form textarea { font-size: 16px; }
   .section-heading { align-items: start; flex-direction: column; gap: 14px; margin-bottom: 25px; }
   .section-heading h2, .about-section h2 { font-size: 35px; }
   .swipe-hint { display: flex; align-items: center; justify-content: space-between; margin: -4px 0 16px; color: var(--muted); font-size: 10px; }
